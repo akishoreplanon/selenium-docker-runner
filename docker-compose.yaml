@@ -25,7 +25,7 @@ services:
       - BROWSER=firefox
       - MODULE=search-module.xml
     volumes:
-      - ./output/search-result:/usr/share/udemy/test-output      
+      - ./output/search-result: /home/kishore/docker/agent/test-output      
   book-flight-module:
     image: kittu1023/selenium-docker
     depends_on:
@@ -36,4 +36,4 @@ services:
       - BROWSER=chrome
       - MODULE=book-flight-module.xml
     volumes:
-      - ./output/book-result:/usr/share/udemy/test-output   
+      - ./output/book-result:/home/kishore/docker/agent/test-output   
