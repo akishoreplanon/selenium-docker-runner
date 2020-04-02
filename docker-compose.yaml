@@ -36,4 +36,4 @@ services:
       - BROWSER=chrome
       - MODULE=book-flight-module.xml
     volumes:
-      - ./output/search-result:/home/kishore/docker/test-output  
+      - ./output/book-result:/home/kishore/docker/test-output  
