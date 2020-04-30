@@ -18,7 +18,7 @@ services:
       - hub
     environment:
       - HUB_HOST=hub
-  samsung_galaxy:
+  android:
    image: butomo1989/docker-android-x86-8.1
    privileged: true
    depends_on:
@@ -32,36 +32,37 @@ services:
      - SELENIUM_HOST=hub
      - MOBILE_WEB_TEST=False
      - AUTO_RECORD=True
+
   search-module:
-    image: kittu1023/selenium-docker
+    image: vinsdocker/selenium-docker
     depends_on:
       - chrome
       - firefox
-      - samsung_galaxy
+      - android
     environment:
       - HUB_HOST=hub
       - BROWSER=firefox
       - MODULE=search-module.xml
     volumes:
-      - ./output/search-result:/usr/share/udemy/test-output
+      - ./output/search-result:/usr/share/udemy/test-output      
   book-flight-module:
-    image: kittu1023/selenium-docker
+    image: vinsdocker/selenium-docker
     depends_on:
       - chrome
       - firefox
-      - samsung_galaxy
+      - android
     environment:
       - HUB_HOST=hub
       - BROWSER=chrome
       - MODULE=book-flight-module.xml
     volumes:
-      - ./output/search-result:/usr/share/udemy/test-output
+      - ./output/book-result:/usr/share/udemy/test-output 
     sample-app-module:
     image: kittu1023/selenium-docker
     depends_on:
       - chrome
       - firefox
-      - samsung_galaxy
+      - android
     environment:
       - HUB_HOST=hub
       - BROWSER=android
