@@ -50,6 +50,12 @@ services:
       - chrome
       - firefox
       - samsung_galaxy
+    environment:
+      - HUB_HOST=hub
+      - BROWSER=chrome
+      - MODULE=book-flight-module.xml
+    volumes:
+      - ./output/search-result:/usr/share/udemy/test-output
     sample-app-module:
     image: kittu1023/selenium-docker
     depends_on:
