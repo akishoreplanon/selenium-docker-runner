@@ -8,12 +8,12 @@ pipeline{
 		}
 		stage("Start Grid"){
 			steps{
-				sh "docker-compose up -d hub chrome firefox"
+				sh "docker-compose up -d hub chrome firefox samsung_galaxy"
 			}
 		}
 		stage("Run Test"){
 			steps{
-				sh "docker-compose up search-module book-flight-module"
+				sh "docker-compose up search-module book-flight-module sample-app-module"
 			}
 		}
 	}
@@ -21,7 +21,6 @@ pipeline{
 		always{
 			archiveArtifacts artifacts: 'output/**'
 			sh "docker-compose down"
-			sh "sudo rm -rf output/"
 		}
 	}
 }
