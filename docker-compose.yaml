@@ -34,7 +34,7 @@ services:
      - AUTO_RECORD=True
 
   search-module:
-    image: vinsdocker/selenium-docker
+    image: kittu1023/selenium-docker
     depends_on:
       - chrome
       - firefox
@@ -44,9 +44,9 @@ services:
       - BROWSER=firefox
       - MODULE=search-module.xml
     volumes:
-      - ./output/search-result:/usr/share/udemy/test-output      
+      - ./output/search-result:/home/kishore/udemy/test-output      
   book-flight-module:
-    image: vinsdocker/selenium-docker
+    image: kittu1023/selenium-docker
     depends_on:
       - chrome
       - firefox
@@ -56,7 +56,7 @@ services:
       - BROWSER=chrome
       - MODULE=book-flight-module.xml
     volumes:
-      - ./output/book-result:/usr/share/udemy/test-output 
+      - ./output/book-result:/home/kishore/udemy/test-output 
     sample-app-module:
     image: kittu1023/selenium-docker
     depends_on:
@@ -68,4 +68,4 @@ services:
       - BROWSER=android
       - MODULE=sample-apptest.xml
     volumes:
-      - ./output/book-result:/usr/share/udemy/test-output
+      - ./output/book-result:/home/kishore/udemy/test-output
