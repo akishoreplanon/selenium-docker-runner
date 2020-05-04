@@ -2,17 +2,17 @@ version: "3"
 services:
   hub:
     image: selenium/hub:3.14
-    user: ${CURRENT_UID}
+    user: "${UID}:${GID}"
   chrome:
     image: selenium/node-chrome:3.14
-    user: ${CURRENT_UID}
+    user: "${UID}:${GID}"
     depends_on:
       - hub
     environment:
       - HUB_HOST=hub
   firefox:
     image: selenium/node-firefox:3.14
-    user: ${CURRENT_UID}
+    user: "${UID}:${GID}"
     shm_size: '1gb'   
     depends_on:
       - hub
@@ -20,7 +20,7 @@ services:
       - HUB_HOST=hub
   search-module:
     image: kittu1023/selenium-docker
-    user: ${CURRENT_UID}
+    user: "${UID}:${GID}"
     depends_on:
       - chrome
       - firefox
@@ -32,7 +32,7 @@ services:
       - ./output/search-result:/usr/share/udemy/test-output
   book-flight-module:
     image: kittu1023/selenium-docker
-    user: ${CURRENT_UID}
+    user: "${UID}:${GID}"
     depends_on:
       - chrome
       - firefox
