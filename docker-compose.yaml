@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3"
 services:
   hub:
     image: selenium/hub:3.14
@@ -25,9 +25,7 @@ services:
       - BROWSER=firefox
       - MODULE=search-module.xml
     volumes:
-      - type: bind
-      - source: ./output/search-result
-      - target: /usr/share/udemy/test-output
+      - ./output/search-result:/usr/share/udemy/test-output
   book-flight-module:
     image: kittu1023/selenium-docker
     depends_on:
@@ -38,6 +36,4 @@ services:
       - BROWSER=chrome
       - MODULE=book-flight-module.xml
     volumes:
-      - type: bind
-      - source: ./output/book-result
-      - target: /usr/share/udemy/test-output
+      - ./output/book-result:/usr/share/udemy/test-output
