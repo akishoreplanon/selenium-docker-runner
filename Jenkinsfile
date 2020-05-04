@@ -8,12 +8,12 @@ pipeline{
 		}
 		stage("Start Grid"){
 			steps{
-				sh "CURRENT_UID=$(id -u):$(id -g) docker-compose up -d hub chrome firefox"
+				sh "UID=${UID} GID=${GID} docker-compose up docker-compose up -d hub chrome firefox"
 			}
 		}
 		stage("Run Test"){
 			steps{
-				sh "CURRENT_UID=$(id -u):$(id -g) docker-compose up search-module book-flight-module"
+				sh "UID=${UID} GID=${GID} docker-compose up docker-compose up search-module book-flight-module"
 			}
 		}
 	}
